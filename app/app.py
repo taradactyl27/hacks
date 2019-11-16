@@ -8,7 +8,7 @@ my_app.secret_key = os.urandom(64)
 
 @my_app.route('/')
 def root():
-    return render_template("register.html")
+    return render_template("index.html")
 
 @my_app.route('/register')
 def register():
@@ -39,7 +39,7 @@ def user_creation():
 def login():
     if "user" in session:
         return redirect(url_for('root'))
-    return render_template('index.html')
+    return render_template('login.html')
 
 @my_app.route('/authenticate', methods=['GET','POST'])
 def authenticate():
@@ -52,7 +52,7 @@ def authenticate():
     if db.look_for(user):
         #authenticate pass
         #print "hi"
-        if db.check_pass(user, pw):
+        if db.authenticate(user, pw):
             session['user'] = user
             return redirect(url_for('root'))
         else:
