@@ -11,6 +11,7 @@ https://cloud.ibm.com/services/natural-language-understanding/crn%3Av1%3Abluemix
 user_audio_file_location = "audio-file.flac"
 
 import requests
+import pprint
 
 headers = {
     'Content-Type': 'audio/flac',
@@ -18,7 +19,9 @@ headers = {
 
 data = open(user_audio_file_location, 'rb').read()
 response = requests.post('https://stream.watsonplatform.net/speech-to-text/api/v1/recognize', headers=headers, data=data, auth=('apikey', 'eEqdSotOfLXQb39UorT9BqwyUfGhPpl-gNld9lbXN1C-'))
-print response
+
+pp = pprint.PrettyPrinter(indent=4)
+print pprint.isreadable(response)
 
 """
 headers_two = {
