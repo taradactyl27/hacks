@@ -10,7 +10,7 @@ gunicorn==19.9.0
 idna==2.8
 itsdangerous==1.1.0
 Jinja2==2.10.1
-Mako==1.0.7
+Mako==1.2.2
 MarkupSafe==1.1.0
 misaka==2.1.1
 psycopg2==2.7.3.2
